@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class LearningCurve : MonoBehaviour
 {
-    public int currentGold = 32;
+    public bool weaponEquipped = true;
+    public string weaponType = "Longsword";
 
     void Start()
     {
-        if (currentGold > 50 )
+        if (weaponEquipped)
         {
-            Debug.Log("旦那は金持ちだねぇ。スリに用心しとくんだね。");
+            if (weaponType == "Longsword")
+            {
+                Debug.Log("女王陛下バンザイ");
+            }
         }
-        else if (currentGold < 15)
-        {
-            Debug.Log("ちぇっ、しけてんなぁ。おととい来やがれ。");
-	    }
         else
         {
-            Debug.Log("ちょうどいい塩梅だ。まいど‼");
-        }
+            Debug.Log("素手では鎧武者には勝てませぬぞ…。");
+	    }
     }
 
 
