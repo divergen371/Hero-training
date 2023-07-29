@@ -9,12 +9,10 @@ public class LearningCurve : MonoBehaviour
 
     void Start()
     {
-        if (weaponEquipped)
+        if (weaponEquipped
+            && weaponType == "Longsword") 
         {
-            if (weaponType == "Longsword")
-            {
                 Debug.Log("女王陛下バンザイ");
-            }
         }
         else
         {
