@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class LearningCurve : MonoBehaviour
 {
-    public bool hasDurgeonKey = true;
+    public int currentGold = 32;
 
-    // Start is called before the first frame update
     void Start()
     {
-        if (hasDurgeonKey)
+        if (currentGold > 50 )
         {
-            Debug.Log("秘密の鍵をお持ちだね。通りなさい。");
+            Debug.Log("旦那は金持ちだねぇ。スリに用心しとくんだね。");
         }
+        else if (currentGold < 15)
+        {
+            Debug.Log("ちぇっ、しけてんなぁ。おととい来やがれ。");
+	    }
         else
         {
-            Debug.Log("戦士よ、身の証しを立てねば通せぬぞ。");
+            Debug.Log("ちょうどいい塩梅だ。まいど‼");
         }
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         
