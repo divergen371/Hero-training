@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class LearningCurve : MonoBehaviour
 {
-    public int currentAge = 30;
-    public int addedAge = 1;
-
-    public float pi = 3.1415f;
-    public string firstName = "Harrison";
-    public bool isAuthor = true;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("キャラクターを選べ");
-        GenerateCharacter();
-        Debug.Log("いいのを選んだな");
+        int characterLevel = 32;
+        GenerateCharacter("Spike", characterLevel);
     }
 
 
@@ -25,8 +18,8 @@ public class LearningCurve : MonoBehaviour
         
     }
 
-    public void GenerateCharacter()
+    public void GenerateCharacter(string name, int level)
     {
-        Debug.Log("Character Spike"); 
+        Debug.LogFormat("Character: {0} - Level: {1}", name, level);
     }
 }
