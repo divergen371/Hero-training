@@ -13,9 +13,7 @@ public class LearningCurve : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ComputeAge();
-        Debug.Log($"文字列には{firstName}のような変数を挿入できる");
-        Debug.Log(firstName * pi);
+        GenerateCharacter();
     }
 
 
@@ -27,5 +25,10 @@ public class LearningCurve : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GenerateCharacter()
+    {
+        Debug.Log("Character Spike"); 
     }
 }
