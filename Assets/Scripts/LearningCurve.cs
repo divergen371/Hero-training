@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class LearningCurve : MonoBehaviour
 {
+    public bool hasDurgeonKey = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        int characterLevel = 32;
-        GenerateCharacter("Spike", characterLevel);
+        if (hasDurgeonKey)
+        {
+            Debug.Log("秘密の鍵をお持ちだね。通りなさい。");
+        }
+        else
+        {
+            Debug.Log("戦士よ、身の証しを立てねば通せぬぞ。");
+        }
     }
 
 
@@ -16,10 +24,5 @@ public class LearningCurve : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void GenerateCharacter(string name, int level)
-    {
-        Debug.LogFormat("Character: {0} - Level: {1}", name, level);
     }
 }
