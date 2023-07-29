@@ -10,7 +10,21 @@ public class LearningCurve : MonoBehaviour
 
     void Start()
     {
-        OpenTresureChamber();
+        int diceRoll = 7;
+
+        switch (diceRoll)
+        {
+            case 7:
+            case 15:
+                Debug.Log("微妙な手応え");
+                break;
+            case 20:
+                Debug.Log("急所に当てた");
+                break;
+            default:
+                Debug.Log("攻撃を外した");
+                break;
+        }
     }
 
 
@@ -19,22 +33,4 @@ public class LearningCurve : MonoBehaviour
         
     }
 
-    public void OpenTresureChamber()
-    {
-        if (pureOfHeart && rareItem == "The Soul of a Fanatic")
-        {
-            if (!hasSecretIncantation)
-            {
-                Debug.Log("善き心を持つものよ、知識を携えてまた来るが良い。");
-            }
-            else
-            {
-                Debug.Log("真の勇者よ、汝にこそこの宝は相応しい。");
-	        }
-        }
-        else
-        {
-            Debug.Log("資格を得てまた来るが良い。");
-        }
-    }
 }
