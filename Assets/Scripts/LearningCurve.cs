@@ -13,14 +13,12 @@ public class LearningCurve : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("キャラクターを選べ");
         GenerateCharacter();
+        Debug.Log("いいのを選んだな");
     }
 
 
-    void ComputeAge()
-    {
-        Debug.Log(currentAge + addedAge);
-    }
     // Update is called once per frame
     void Update()
     {
