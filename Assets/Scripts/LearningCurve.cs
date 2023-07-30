@@ -10,6 +10,8 @@ public class LearningCurve : MonoBehaviour
         hero.PrintStatsInfo();
         Character heroine = new Character("アガサ");
         heroine.PrintStatsInfo();
+        Weapon huntingBow = new Weapon("Hunting Bow", 105);
+        huntingBow.PrintWeaponStats(); 
     }
 
 
