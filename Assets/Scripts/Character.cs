@@ -17,7 +17,7 @@ public class Character
     {
         this.name = name;
     }
-    public void PrintStatsInfo()
+    public virtual void PrintStatsInfo()
     { 
         Debug.LogFormat("Hero: {0} - {1} EXP", name, exp);
     }
@@ -38,6 +38,10 @@ public class Paladin: Character
         this.weapon = weapon;
     }
 
+    public override void PrintStatsInfo()
+    {
+        Debug.LogFormat("あっぱれ {0} - 汝の{1}を掲げよ", name, weapon.name);
+    }
 }
 
 

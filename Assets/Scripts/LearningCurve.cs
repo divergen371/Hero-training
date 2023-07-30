@@ -4,30 +4,13 @@ using UnityEngine;
 
 public class LearningCurve : MonoBehaviour
 {
+    private Transform camTransform;
+
     void Start()
     {
-        Character hero = new Character();
-        hero.PrintStatsInfo();
-        Character hero2 = hero;
-        hero2.name = "Sir Krane the Brave";
-        
-        hero.PrintStatsInfo();
-        hero2.PrintStatsInfo();
+        camTransform = this.GetComponent<Transform>();
+        Debug.Log(camTransform.localPosition); 
 
-        Character heroine = new Character("アガサ");
-        heroine.PrintStatsInfo();
-
-
-        Weapon huntingBow = new Weapon("Hunting Bow", 105);
-        Weapon warBow = huntingBow;
-
-        warBow.name = "War Bow";
-        warBow.damage = 155;
-        huntingBow.PrintWeaponStats();
-        warBow.PrintWeaponStats();
-
-        Paladin knight = new Paladin("Sir Arthur", huntingBow);
-        knight.PrintStatsInfo();
     }
 
 
