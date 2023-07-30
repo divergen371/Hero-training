@@ -21,6 +21,12 @@ public class Character
     { 
         Debug.LogFormat("Hero: {0} - {1} EXP", name, exp);
     }
+
+    private void Reset()
+    {
+        this.name = "unset";
+        this.exp = 0;
+    } 
 }
 
 public struct Weapon
