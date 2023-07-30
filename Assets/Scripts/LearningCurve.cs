@@ -6,12 +6,23 @@ public class LearningCurve : MonoBehaviour
 {
     void Start()
     {
-        List<string> questPartyMembers = new List<string>()
-        { "Grim the Barbalian", "Merlin the Wise", "Sterling the Knight"};
-
-        foreach (var member in questPartyMembers)
+        int wallet = 100;
+        Dictionary<string, int> itemInventory = new Dictionary<string, int>()
         {
-            Debug.LogFormat("{0} - Here!!", member);
+            {"Potion", 100 },
+            {"Antidote", 150 },
+            {"Aspirin", 200 },
+        };
+        foreach (KeyValuePair<string, int>  kpv in itemInventory)
+        {
+            if (wallet >= kpv.Value)
+            {
+                Debug.LogFormat("{0}  can be bought.", kpv.Key);
+            }
+            else
+            {
+                Debug.LogFormat("I can't afford {0} because I don't have enough on hand.", kpv.Key);
+	        }
         }
 
     }
