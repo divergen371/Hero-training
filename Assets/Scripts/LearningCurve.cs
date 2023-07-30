@@ -6,18 +6,19 @@ public class LearningCurve : MonoBehaviour
 {
     void Start()
     {
-        List<string> questPartyMembers = new List<string>()
-        { "Grim the Barbarian", "Merlin the Wise", "Sterling the Knight"};
-        questPartyMembers.Add("Craven the Necromancer");
-        questPartyMembers.Insert(1, "Tanis the Thief");
-        
-        Debug.LogFormat("Party Members: {0}", questPartyMembers.Count);
+        Dictionary<string, int> itemInventory = new Dictionary<string, int>()
+        {
+            {"Potion", 5},
+            {"Antidote", 8},
+            {"Aspirin", 1},
+        };
+        Debug.LogFormat("Items: {0}", itemInventory.Count);
     }
 
 
     void Update()
     {
-        
+
     }
 
 }
