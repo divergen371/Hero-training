@@ -9,12 +9,9 @@ public class LearningCurve : MonoBehaviour
         List<string> questPartyMembers = new List<string>()
         { "Grim the Barbalian", "Merlin the Wise", "Sterling the Knight"};
 
-        for (int i = 0; i <questPartyMembers.Count ; i++)
+        foreach (var member in questPartyMembers)
         {
-            if (questPartyMembers[i] == "Merlin the Wise")
-           {
-                Debug.Log($"Glad you're here, {questPartyMembers[i]}.");
-	       }
+            Debug.LogFormat("{0} - Here!!", member);
         }
 
     }
