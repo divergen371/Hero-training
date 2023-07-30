@@ -7,9 +7,9 @@ public class LearningCurve : MonoBehaviour
     void Start()
     {
         Character hero = new Character();
-        Debug.LogFormat("Hero: {0} - {1} EXP", hero.name, hero.exp);
+        hero.PrintStatsInfo();
         Character heroine = new Character("アガサ");
-        Debug.LogFormat("Hero: {0} - {1} EXP", heroine.name, heroine.exp);
+        heroine.PrintStatsInfo();
     }
 
 
