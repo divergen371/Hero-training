@@ -6,13 +6,17 @@ public class LearningCurve : MonoBehaviour
 {
     void Start()
     {
-        Dictionary<string, int> itemInventory = new Dictionary<string, int>()
+        List<string> questPartyMembers = new List<string>()
+        { "Grim the Barbalian", "Merlin the Wise", "Sterling the Knight"};
+
+        for (int i = 0; i <questPartyMembers.Count ; i++)
         {
-            {"Potion", 5},
-            {"Antidote", 8},
-            {"Aspirin", 1},
-        };
-        Debug.LogFormat("Items: {0}", itemInventory.Count);
+            if (questPartyMembers[i] == "Merlin the Wise")
+           {
+                Debug.Log($"Glad you're here, {questPartyMembers[i]}.");
+	       }
+        }
+
     }
 
 
