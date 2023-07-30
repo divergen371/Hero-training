@@ -8,6 +8,10 @@ public class LearningCurve : MonoBehaviour
     {
         Character hero = new Character();
         hero.PrintStatsInfo();
+        Character hero2 = hero;
+        hero2.name = "Sir Krane the Brave";
+        hero.PrintStatsInfo();
+        hero2.PrintStatsInfo();
         Character heroine = new Character("アガサ");
         heroine.PrintStatsInfo();
         Weapon huntingBow = new Weapon("Hunting Bow", 105);
