@@ -6,14 +6,10 @@ public class LearningCurve : MonoBehaviour
 {
     void Start()
     {
-        int playerLives = 5;
-
-        while (playerLives > 0)
-        {
-            Debug.Log("player still alive");
-            playerLives--;
-	}
-        Debug.Log("The player's life has ended.");
+        Character hero = new Character();
+        Debug.LogFormat("Hero: {0} - {1} EXP", hero.name, hero.exp);
+        Character heroine = new Character("アガサ");
+        Debug.LogFormat("Hero: {0} - {1} EXP", heroine.name, heroine.exp);
     }
 
 
