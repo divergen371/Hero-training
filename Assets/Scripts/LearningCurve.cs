@@ -5,12 +5,15 @@ using UnityEngine;
 public class LearningCurve : MonoBehaviour
 {
     private Transform camTransform;
+    public GameObject directionLight;
+    private Transform lightTransform;
 
     void Start()
     {
-        camTransform = this.GetComponent<Transform>();
-        Debug.Log(camTransform.localPosition); 
+        directionLight = GameObject.Find("Directional Light");
 
+        lightTransform = directionLight.GetComponent<Transform>();
+        Debug.Log(lightTransform.localPosition);
     }
 
 
