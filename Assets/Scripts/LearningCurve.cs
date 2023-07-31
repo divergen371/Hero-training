@@ -10,7 +10,7 @@ public class LearningCurve : MonoBehaviour
 
     void Start()
     {
-        directionLight = GameObject.Find("Directional Light");
+        //directionLight = GameObject.Find("Directional Light");
 
         lightTransform = directionLight.GetComponent<Transform>();
         Debug.Log(lightTransform.localPosition);

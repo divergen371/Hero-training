@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0641acae3605400080c461a7a4f1664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directionLight: {fileID: 705507993}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
