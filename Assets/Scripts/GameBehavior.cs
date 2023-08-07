@@ -8,8 +8,7 @@ public class GameBehavior : MonoBehaviour
     public int Items
     { 
         get { return _itemCollected; }
-        set
-        {
+        set { 
             _itemCollected = value;
             Debug.LogFormat("Items: {0}", _itemCollected);
 	    }
