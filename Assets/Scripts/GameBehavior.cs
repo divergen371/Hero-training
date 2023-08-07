@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class GameBehavior : MonoBehaviour
 {
+    public string labelText = "4つのアイテムをあつめて自由を勝ち取ろう！";
+    public int maxItems = 4;
+    
     private int _itemCollected = 0;
     public int Items
     { 
         get { return _itemCollected; }
         set { 
             _itemCollected = value;
-            Debug.LogFormat("Items: {0}", _itemCollected);
+            if (_itemCollected >= maxItems)
+            {
+                labelText = "アイテムを全部みつけたね！";
+            }
+            else
+            {
+                labelText = "アイテムをみつけたね。あと " + (maxItems - _itemCollected) + "つだよ！";
+            }
 	    }
     }
+    
     private int _playerHP = 10;
     public int HP
     { 
@@ -21,5 +32,12 @@ public class GameBehavior : MonoBehaviour
             _playerHP = value;
             Debug.LogFormat("Lives: {0}", _playerHP);
 	    }
+    }
+
+    void OnGUI()
+    {
+        GUI.Box(new Rect(20, 20, 150, 25), "プレイヤーのHP:" + _playerHP);
+        GUI.Box(new Rect(20, 50, 150, 25), "あつめたアイテム:" + _itemCollected);
+        GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height - 50, 300, 50), labelText);
     }
 }
