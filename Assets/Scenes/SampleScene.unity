@@ -363,6 +363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a06d10a8ec345668f65a47ff0fbb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  labelText: "4\u3064\u306E\u30A2\u30A4\u30C6\u30E0\u3092\u3042\u3064\u3081\u3066\u81EA\u7531\u3092\u52DD\u3061\u53D6\u308D\u3046\uFF01"
+  maxItems: 1
+  showWinScreen: 0
 --- !u!4 &351628997
 Transform:
   m_ObjectHideFlags: 0
