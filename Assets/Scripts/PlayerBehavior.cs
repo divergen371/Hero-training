@@ -81,7 +81,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (collision.gameObject.name == "Enemy")
         {
-            _gameManager -= 1;
+            _gameManager.HP -= 1;
         }
     }
 }
