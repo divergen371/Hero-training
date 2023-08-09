@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CustomExtensions;
 
 
-public class GameBehavior : MonoBehaviour
+public class GameBehavior : MonoBehaviour, IManager
 {
+    private string _state;
+    public string State
+    { 
+        get { return _state; }
+        set { _state = value; }
+    } 
     public string labelText = "4つのアイテムをあつめて自由を勝ち取ろう！";
     public int maxItems = 4;
     public bool showWinScreen = false;
+    public Stack<string> lootStack = new Stack<string>();
 
     public bool showLoseScreen = false;
     private int _itemCollected = 0;
@@ -50,6 +58,23 @@ public class GameBehavior : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        Initialize();
+    }
+
+    public void Initialize()
+    {
+        _state = "ManagerのHPを初期化を終えました";
+        _state.FancyDebug();
+        Debug.Log(_state);
+
+        lootStack.Push("Sowrd of Doom");
+        lootStack.Push("HP+");
+        lootStack.Push("Golden Key");
+        lootStack.Push("Winged Boor");
+        lootStack.Push("Mythril Bracers");
+    }
     void OnGUI()
     {
         GUI.Box(new Rect(20, 20, 150, 25), "プレイヤーのHP:" + _playerHP);
@@ -72,4 +97,9 @@ public class GameBehavior : MonoBehaviour
             }
         }
     }
+
+    public void PrintLootReport()
+    {
+        Debug.LogFormat("お宝が{0}つ、君を待っているぞ！", lootStack.Count);
+     }
 }
