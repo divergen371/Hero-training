@@ -6,15 +6,17 @@ using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public Transform player;
     public Transform patrolRoute;
     public List<Transform> locations;
 
     private int locationIndex = 0;
-    private NavMeshAgent agent; 
-    
+    private NavMeshAgent agent;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.Find("Player").transform;
         InitializePatrolRoute();
         MovoToNextPatrolLocation();
     }
@@ -29,7 +31,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void InitializePatrolRoute()
     {
-        foreach (Transform child in  patrolRoute)
+        foreach (Transform child in patrolRoute)
         {
             locations.Add(child);
         }
@@ -49,6 +51,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (other.name == "Player")
         {
+            agent.destination = player.position;
             Debug.Log("プレイヤーを発見した ‐ 攻撃せよ！");
         }
     }
