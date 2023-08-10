@@ -366,6 +366,7 @@ MonoBehaviour:
   labelText: "4\u3064\u306E\u30A2\u30A4\u30C6\u30E0\u3092\u3042\u3064\u3081\u3066\u81EA\u7531\u3092\u52DD\u3061\u53D6\u308D\u3046\uFF01"
   maxItems: 1
   showWinScreen: 0
+  showLoseScreen: 0
 --- !u!4 &351628997
 Transform:
   m_ObjectHideFlags: 0
@@ -2319,6 +2320,14 @@ PrefabInstance:
     - target: {fileID: 1689968294956346945, guid: 9ce824121cd4a460387f7355294478bd, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122715308189984592, guid: 9ce824121cd4a460387f7355294478bd, type: 3}
+      propertyPath: patrolRoute
+      value: 
+      objectReference: {fileID: 609414937}
+    - target: {fileID: 3122715308189984592, guid: 9ce824121cd4a460387f7355294478bd, type: 3}
+      propertyPath: locations.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5528938236723525476, guid: 9ce824121cd4a460387f7355294478bd, type: 3}
       propertyPath: m_LocalPosition.x

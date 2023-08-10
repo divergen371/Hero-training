@@ -6,6 +6,8 @@ using CustomExtensions;
 
 public class GameBehavior : MonoBehaviour, IManager
 {
+    public delegate void DebugDelegate(string newText);
+    public DebugDelegate debug = Print;
     private string _state;
     public string State
     { 
@@ -61,20 +63,44 @@ public class GameBehavior : MonoBehaviour, IManager
     void Start()
     {
         Initialize();
+        InventoryList<string> inventoryList = new InventoryList<string>();
+        inventoryList.SetItem("Potion");
+        Debug.Log(inventoryList.item);
     }
 
     public void Initialize()
     {
         _state = "ManagerのHPを初期化を終えました";
         _state.FancyDebug();
-        Debug.Log(_state);
+        debug(_state);
+        LogWithDelegate(debug);
+        GameObject player = GameObject.Find("Player");
+        PlayerBehavior playerBehavior =
+            player.GetComponent<PlayerBehavior>();
+        playerBehavior.playerJump += HandlePlayerJump;
 
         lootStack.Push("Sowrd of Doom");
         lootStack.Push("HP+");
         lootStack.Push("Golden Key");
-        lootStack.Push("Winged Boor");
+        lootStack.Push("Winged Boot");
         lootStack.Push("Mythril Bracers");
     }
+
+    public void HandlePlayerJump()
+    {
+        debug("プレイヤーがジャンプした");
+    }
+
+    public static void Print(string newText)
+    {
+        Debug.Log(newText);
+    }
+
+    public void LogWithDelegate(DebugDelegate del)
+    {
+        del("デバッグ出力を委任する");
+    }
+
     void OnGUI()
     {
         GUI.Box(new Rect(20, 20, 150, 25), "プレイヤーのHP:" + _playerHP);
@@ -93,13 +119,29 @@ public class GameBehavior : MonoBehaviour, IManager
         {
             if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 50, 200, 100), "きみの負けだ…"))
             {
-                Utilities.RestartLevel();
+                try
+                {
+                    Utilities.RestartLevel(-1);
+                    debug("レベルの再開に成功");
+                }
+                catch (System.ArgumentException e)
+                {
+                    Utilities.RestartLevel(0);
+                    debug("シーンを0に戻す: " + e.ToString());
+                }
+                finally
+                {
+                    debug("リスタートを処理した…");
+		        }
             }
         }
     }
 
     public void PrintLootReport()
     {
+        var currentItem = lootStack.Pop();
+        var nextItem = lootStack.Peek();
+        Debug.LogFormat("{0}をゲットした‼次に見つかるのは、きっと{1}だ‼", currentItem, nextItem);
         Debug.LogFormat("お宝が{0}つ、君を待っているぞ！", lootStack.Count);
      }
 }
